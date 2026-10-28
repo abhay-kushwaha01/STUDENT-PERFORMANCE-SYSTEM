@@ -12,19 +12,37 @@ A local web application for managing students, marks, attendance, and performanc
 
 ## Run on Windows
 
-Install Python 3.10 or newer, then run:
+Install Python 3.10 or newer. Open the project folder in VS Code, open its integrated PowerShell terminal, and start the launcher from the project root:
 
-```bat
-run.bat
+```powershell
+.\run.bat
 ```
 
-The script starts the Python backend and opens the dashboard. Keep the backend console open while using the site. Alternatively, start it from the project directory:
+If the terminal is not already at the project root, change to your own project folder first:
 
-```bat
+```powershell
+cd "path\to\STUDENT_PERFORMANCE_SYSTEM"
+.\run.bat
+```
+
+The launcher checks for `python` and then `py -3`, starts the backend, and opens the dashboard. Keep the Python backend window open while using the site. You can also start the backend directly:
+
+```powershell
+py -3 --version
+py -3 -m backend.main
+```
+
+If `python` or `py` is not recognized, Python is either not installed or is not available on `PATH`. Install Python 3.10 or newer from [python.org/downloads](https://www.python.org/downloads/), select **Add python.exe to PATH** during setup, then close and reopen the terminal. Check the installation with `py -3 --version` (or `python --version`) before running the project.
+
+Open `http://localhost:8080/dashboard` if the browser does not open automatically.
+
+To stop the backend, press **Ctrl+C** in the terminal running it, or close the Python backend window opened by `run.bat`.
+
+If you prefer the `python` command and it is available on your `PATH`, you can start the backend directly with:
+
+```powershell
 python -m backend.main
 ```
-
-Open `http://localhost:8080/dashboard`.
 
 ## Run on Linux or macOS
 
@@ -105,9 +123,9 @@ To restore the demo dataset, stop the server and run `reset_demo_data.bat`, then
 
 ## Troubleshooting
 
-- **Python is not found:** install Python 3.10 or newer and enable the Python launcher or add Python to `PATH`.
-- **Port 8080 is already in use:** stop the other server process or run `python -m backend.main --port 8081`, then open `http://localhost:8081/dashboard`.
-- **The browser shows a 404:** start the server from the project directory with `run.bat` or `python -m backend.main`.
+- **`python` is not recognized:** try `py -3 --version`. If that also fails, install Python 3.10 or newer, enable **Add python.exe to PATH**, and reopen the terminal. The Windows `run.bat` launcher tries both `python` and `py -3`.
+- **Port 8080 is already in use:** stop the other server process or run `py -3 -m backend.main --port 8081` (or `python -m backend.main --port 8081`), then open `http://localhost:8081/dashboard`.
+- **The browser shows a 404:** start the server from the project directory with `.\run.bat` or `py -3 -m backend.main`.
 
 ## Scope
 
