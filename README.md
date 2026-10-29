@@ -10,7 +10,7 @@ A local web application for managing students, marks, attendance, and performanc
 - Server: `http://localhost:8080`
 - External Python packages: none
 
-## Run on Windows
+## Run on 
 
 Install Python 3.10 or newer. Open the project folder in VS Code, open its integrated PowerShell terminal, and start the launcher from the project root:
 
